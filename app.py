@@ -42,9 +42,12 @@ class ChromaticQuantumZonesClock(tk.Tk):
         self.after(1000, self.update_clock)
 
     def update_quantum_state(self):
-        current_time = datetime.now()
-        self.current_time_param = (current_time.hour + current_time.minute / 60) * np.pi / 12
-        asyncio.run(self.generate_emotion_data("happy", "task1", "task2", "task3"))
+        try:
+            current_time = datetime.now()
+            self.current_time_param = (current_time.hour + current_time.minute / 60) * np.pi / 12
+            asyncio.run(self.generate_emotion_data("happy", "task1", "task2", "task3"))
+        except Exception as e:
+            print(f"Error updating quantum state: {e}")
 
     async def generate_emotion_data(self, emotion, task1_label, task2_label, task3_label):
         task1_prompt = f"Please generate an HTML color code that best represents the emotion: {emotion}."
