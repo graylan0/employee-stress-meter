@@ -146,6 +146,7 @@ class ChromaticQuantumZonesClock(tk.Tk):
         else:
             return 0.5
           
-if name == "main":
-clock_app = ChromaticQuantumZonesClock()
-clock_app.mainloop()
+if __name__ == "__main__":
+    clock_app = ChromaticQuantumZonesClock()
+    clock_app.mainloop()
+
